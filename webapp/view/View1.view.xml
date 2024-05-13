@@ -1,0 +1,117 @@
+<mvc:View controllerName="zsnetorderdetails.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 	xmlns:core="sap.ui.core"
+    xmlns="sap.m"	xmlns:f="sap.f"
+		xmlns:fb="sap.ui.comp.filterbar"
+		xmlns:svm="sap.ui.comp.smartvariants">
+		<f:DynamicPage >
+			<f:title>
+				<f:DynamicPageTitle>
+					<!-- <f:heading>
+						<svm:SmartVariantManagement id="svm" showExecuteOnSelection="true" />
+					</f:heading>
+					<f:expandedContent>
+						<Label id="expandedLabel" text="No filters active" />
+					</f:expandedContent>
+					<f:snappedContent>
+						<Label id="snappedLabel" text="No filters active" />
+					</f:snappedContent> -->
+				</f:DynamicPageTitle>
+			</f:title>
+			<f:header>
+				<f:DynamicPageHeader>
+					<f:content>
+						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+							<fb:filterGroupItems>
+								<fb:FilterGroupItem name="OrderNumber" label="Order Number" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<!-- <SearchField  id="idSearchField" change="onChangeSearch"/> -->
+										<MultiInput
+												id="idOrderNumber"
+												valueHelpOnly="true"
+												width="60%"
+												valueHelpRequest=".onOrderNumbersVHRequested"/>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="OrderCreationDate" label="Order Creation Date Range" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+									<DateRangeSelection
+												id="DRS1"
+												class="DRS1"
+											
+												change="handleChange"/>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="OrderType" label="Order Type" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+									
+									 <MultiInput id="idOrderTypeVH"   valueHelpOnly="true"     valueHelpRequest=".onOrderTypeVH" suggestionItems="{
+													path: 'orderTypeModel>/',
+													sorter: {path : 'Auart'}
+												}"	>
+											<core:Item key="{orderTypeModel>Auart}" text="{orderTypeModel>Bezei}" />
+										</MultiInput>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="SalesOrg" label="Sales Org" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+									 <MultiInput id="idSalesOrgVH"   valueHelpOnly="true"     valueHelpRequest=".onSalesOrgVH" suggestionItems="{
+													path: 'salesOrgModel>/',
+													sorter: {path : 'Vkorg'}
+												}"	>
+											<core:Item key="{salesOrgModel>Vkorg}" text="{salesOrgModel>Vtext}" />
+									</MultiInput>
+									
+									</fb:control>
+								</fb:FilterGroupItem>
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+					</f:content>
+				</f:DynamicPageHeader>
+			</f:header>
+			<f:content>
+				<!-- <Table	id="idSerNoTable" mode="SingleSelectLeft" selectionChange="onSelectRow"	items="{ path: 'returnOrderModel>/company' , sorter : [{path: 'serialNo'}]}"> -->
+					<Table	id="idReturnOrderTable" mode="SingleSelectLeft" selectionChange="onSelectRow"	items="{returnOrderModel>/}" growing="true" growingScrollToLoad="true" growingThreshold="15"  sticky="ColumnHeaders,HeaderToolbar"
+				   inset="false">
+					<headerToolbar>
+						<OverflowToolbar>
+							<content>
+								<Title text="Order Details" level="H2"/>
+								<ToolbarSpacer />
+						
+								<Button
+									id ="idPGRBtn"
+									text="Create Service Del. PGR"
+									press="onPressedCreatePGR" enabled="false"/>
+								
+							</content>
+						</OverflowToolbar>
+					</headerToolbar>
+						<columns>
+							<Column>
+								<Text text="Sales Order Number." />
+							</Column>
+							<Column>
+								<Text text="Order Type" />
+							</Column>
+							<!-- <Column>
+								<Text text="Creation Date" />
+							</Column>
+							<Column>
+								<Text text="Sales Org" />
+							</Column> -->
+						</columns>
+
+					<items >
+						<ColumnListItem vAlign="Middle">
+							<cells>
+								<Text	text="{returnOrderModel>OrderNumber}" />
+								<Text	text="{returnOrderModel>OrderType}" />
+								<!-- <Text	text="{returnOrderModel>CreationDate}" />
+								<Text	text="{returnOrderModel>SalesOrg}" /> -->
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</f:content>
+		</f:DynamicPage>
+</mvc:View>

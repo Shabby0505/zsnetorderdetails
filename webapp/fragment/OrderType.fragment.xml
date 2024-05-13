@@ -1,0 +1,41 @@
+<!-- <core:FragmentDefinition
+	xmlns="sap.ui.comp.valuehelpdialog"
+	xmlns:core="sap.ui.core">
+	<ValueHelpDialog
+		title="Functional Location"
+		ok=".onFunctionLocationVHOkPress"
+		cancel=".onFunctionalLocationVHCancelPress"
+		key="ProductId"
+		descriptionKey="Name"
+		afterClose=".onFunctionalLocationVHAfterClose"
+		supportRanges="true"
+		supportRangesOnly="true"
+		maxIncludeRanges="1"
+		maxExcludeRanges="0"
+		maxConditions="1"/>
+</core:FragmentDefinition> -->
+
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="mySelectDialog"
+		noDataText="No Order Type Found"
+		title="Select Order Type"
+		search="._handleValueHelpSearch"
+		confirm="._handleValueHelConfirm"
+		cancel=".onDialogClose"
+	
+		multiSelect="true"
+		items="{
+			path: 'orderTypeModel>/',
+			sorter: {path : 'Auart'}
+		}">
+		<StandardListItem
+			title="{orderTypeModel>Auart}"
+			description="{orderTypeModel>Bezei}"
+			press="onPressOrderType"
+			type="Active" 
+			  />
+	</SelectDialog>
+</core:FragmentDefinition>

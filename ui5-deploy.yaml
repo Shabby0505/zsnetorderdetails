@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: zsnetorderdetails
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: HANAS4DEV
+          url: http://s4fioridev.sagenet.com:8000
+        app:
+          name: ZSNETORDERDETAI
+          description: Order Details app for Create Service Del & PGR
+          package: ZFIORI_S4
+          transport: DEVK937962
+        exclude:
+          - /test/

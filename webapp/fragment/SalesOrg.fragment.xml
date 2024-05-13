@@ -1,0 +1,23 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="idSalesOrgFgm"
+		noDataText="No Sales Org Found"
+		title="Select Sales Org"
+		search="._handleSalesOrgValueHelpSearch"
+		confirm="._handleSalesOrgValueHelConfirm"
+		cancel="._handleSalesOrgValueHelpClose"
+	
+		multiSelect="true"
+		items="{
+			path: 'salesOrgModel>/'
+		}">
+		<StandardListItem
+			title="{salesOrgModel>Vkorg}"
+			description="{salesOrgModel>Vtext}"
+			
+			iconInset="false"
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>
