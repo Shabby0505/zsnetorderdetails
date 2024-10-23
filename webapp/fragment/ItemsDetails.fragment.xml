@@ -1,0 +1,79 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id="openDialog" title="Items Detail {/employee/name}">
+
+		<Table	id="idItemsTable" items="{itemDetailModels>/}" growing="true" growingScrollToLoad="true" growingThreshold="15"  sticky="ColumnHeaders,HeaderToolbar"
+				   inset="false">
+					<headerToolbar>
+						<OverflowToolbar>
+							<content>
+								<!-- <Title text="Items Details" level="H2"/>
+								<ToolbarSpacer /> -->
+							
+								
+							</content>
+						</OverflowToolbar>
+					</headerToolbar>
+						<columns>
+							<Column>
+								<Text text="Order Type" />
+							</Column>
+							<Column>
+								<Text text="Serial Number" />
+							</Column>
+							<Column>
+								<Text text="Order Number" />
+							</Column>
+							<Column>
+								<Text text="PO Number" />
+							</Column>
+							<Column>
+								<Text text="Item Number" />
+							</Column>
+							<Column>
+								<Text text="Part Number" />
+							</Column>
+							<Column>
+								<Text text="Plant" />
+							</Column>
+							<Column>
+								<Text text="Storage Location" />
+							</Column>
+							<Column>
+								<Text text="Shipping Point" />
+							</Column>
+							<Column>
+								<Text text="Item Category" />
+							</Column>
+							<Column>
+								<Text text="Net Value" />
+							</Column>
+						</columns>
+
+					<items >
+						<ColumnListItem vAlign="Middle">
+							<cells>
+								<Text	text="{itemDetailModels>OrderType}" />
+								<Text	text="{itemDetailModels>SerialNumber}" />
+								<Text	text="{itemDetailModels>OrderNumber}" />
+								<Text	text="{itemDetailModels>PoNumber}" />
+								<Text	text="{itemDetailModels>ItemNumber}" />
+								<Text	text="{itemDetailModels>Material}" />
+								<Text	text="{itemDetailModels>Plant}" />
+								<Text	text="{itemDetailModels>StorageLocation}" />
+								<Text	text="{itemDetailModels>ShippingPoint}" />
+								<Text	text="{itemDetailModels>ItemCategory}" />
+								<Text	text="{itemDetailModels>NetValue}" />
+							
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+
+
+<beginButton>
+<Button text="OK" press=".closeDialog"/>
+</beginButton>
+</Dialog>
+</core:FragmentDefinition>

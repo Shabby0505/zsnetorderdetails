@@ -77,7 +77,14 @@
 							<content>
 								<Title text="Order Details" level="H2"/>
 								<ToolbarSpacer />
-						
+								<Button
+									id ="idDismantlePartButton"
+									text="Dismantle Part"
+									press="onPresDismantlePart" enabled="false"/>
+								<Button
+									id ="idItemDetailsButton"
+									text="Check Item Details"
+									press="onPressedItemDetails" enabled="false"/>
 								<Button
 									id ="idPGRBtn"
 									text="Create Service Del. PGR"
@@ -104,7 +111,8 @@
 					<items >
 						<ColumnListItem vAlign="Middle">
 							<cells>
-								<Text	text="{returnOrderModel>OrderNumber}" />
+								<Link text="{returnOrderModel>OrderNumber}"	press="onOrderNumberClick" />
+								<!-- <Text	text="{returnOrderModel>OrderNumber}" /> -->
 								<Text	text="{returnOrderModel>OrderType}" />
 								<!-- <Text	text="{returnOrderModel>CreationDate}" />
 								<Text	text="{returnOrderModel>SalesOrg}" /> -->

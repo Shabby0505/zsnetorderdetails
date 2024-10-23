@@ -20,6 +20,6 @@ builder:
           name: ZSNETORDERDETAI
           description: Order Details app for Create Service Del & PGR
           package: ZFIORI_S4
-          transport: DEVK937962
+          transport: DEVK938394
         exclude:
           - /test/
